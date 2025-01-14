@@ -26,7 +26,7 @@ db;
 #### 컬렉션 생성
 db.createCollection("컬렉션 명");
 
-```json lines
+```
 test> db.createCollection("persons")
 { ok: 1 }
 ```
@@ -37,7 +37,7 @@ show collections;
 #### 단일 Document 삽입
 db.컬렉션명.insertOne({key:value});
 
-```json lines
+```
 test> db.persons.insertOne({name:"dev", age:20})
 {
   acknowledged: true,
@@ -47,7 +47,7 @@ test> db.persons.insertOne({name:"dev", age:20})
 #### 여러 Document 삽입
 db.컬렉션명.insertMany([{key:value}]);
 
-```json lines
+```
 test> db.persons.insertMany([{name:"bae", age:21}, {name:"hanseong", age:22}])
 {
   acknowledged: true,
@@ -60,7 +60,7 @@ test> db.persons.insertMany([{name:"bae", age:21}, {name:"hanseong", age:22}])
 #### 모든 Document 조회
 db.컬렉션명.find();
 
-```json lines
+```
 test> db.persons.find()
 [
   { 
@@ -87,7 +87,7 @@ db.컬렉션명.countDocuments()
 #### 특정 조건으로 Document 조회
 db.컬렉션명.find({key:value})
 
-```json lines
+```
 test> db.persons.find({name : "hanseong"})
 [
   {
@@ -102,7 +102,7 @@ test> db.persons.find({name : "hanseong"})
 #### 단일 Document 업데이트
 db.컬렉션명.updateOne({filter_key : filter_value}, {$set: {key : value}})
 
-```json lines
+```
 test> db.persons.updateOne({name : "dev"}, {$set: {name : "develop"}})
 {
   acknowledged: true,
@@ -115,7 +115,7 @@ test> db.persons.updateOne({name : "dev"}, {$set: {name : "develop"}})
 ```
 #### 단일 Document 삭제
 db.컬렉션명.deleteOne({key : value})
-```json lines
+```
 test> db.persons.deleteOne({name : "bae"})
 { acknowledged: true, deletedCount: 1 }
 ```
@@ -125,7 +125,7 @@ db.컬렉션명.deleteMany({key:value})
 
 #### 컬렉션 삭제
 db.컬렉션명.drop()
-```json lines
+```
 test> db.persons.drop()
 true
 ```
