@@ -20,6 +20,37 @@ show dbs;
 #### 데이터 베이스 변경
 use 데이터베이스명;
 
+#### 계정 생성
+```
+db.createUser(
+   {
+     user: "계정명",
+     pwd: "패스워드",
+     roles: [ { role: "권한", db: "DB명" } ]
+   }
+)
+
+db.createUser(
+   {
+      user: "dev",
+      pwd : "pwd",
+      roles: [
+         {role: "readWrite", db: "learning"}
+      ]
+   }
+)
+```
+
+#### 로그인 및 권한 확인
+```
+mongosh -u 계정명 -p 패스워드 --authenticationDatabase DB명
+
+docker exec -it mongo_container mongosh -u dev -p pwd --authenticationDatabase learning
+Current Mongosh Log ID: 67889e74b11057d38f544ca6
+Connecting to:          mongodb://<credentials>@127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&authSource=learning&appName=mongosh+2.3.8
+Using MongoDB:          7.0.16
+Using Mongosh:          2.3.8
+```
 #### 현재 데이터 베이스 확인
 db;
 
